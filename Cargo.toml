@@ -11,5 +11,4 @@ categories = [
     "rust-patterns",
     "text-processing",
     "no-std",
-    "no-std::no-alloc",
 ]
