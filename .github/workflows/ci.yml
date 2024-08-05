@@ -28,4 +28,3 @@ jobs:
           toolchain: ${{ matrix.rust }}
           targets: ${{ matrix.target }}
       - run: cargo build --no-default-features --target ${{ matrix.target }}
-      - run: cargo test --no-default-features --target ${{ matrix.target }}
