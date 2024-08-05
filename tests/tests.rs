@@ -1,6 +1,18 @@
 use split_paragraphs::ParagraphsExt;
 
 #[test]
+fn readme() {
+    use split_paragraphs::ParagraphsExt;
+
+    let text = "foo\r\nbar\n\nbaz\r";
+    let mut paragraphs = text.paragraphs();
+
+    assert_eq!(paragraphs.next(), Some("foo\r\nbar"));
+    assert_eq!(paragraphs.next(), Some("baz\r"));
+    assert_eq!(paragraphs.next(), None);
+}
+
+#[test]
 fn line() {
     let text = "Hello world";
     let mut paragraphs = text.paragraphs();

@@ -9,10 +9,9 @@ use split_paragraphs::ParagraphsExt;
 let text = "foo\r\nbar\n\nbaz\r";
 let mut paragraphs = text.paragraphs();
 
-assert_eq!(Some("foo\r\nbar"), paragraphs.next());
-assert_eq!(Some("baz\r"), paragraphs.next());
-
-assert_eq!(None, paragraphs.next());
+assert_eq!(paragraphs.next(), Some("foo\r\nbar"));
+assert_eq!(paragraphs.next(), Some("baz\r"));
+assert_eq!(paragraphs.next(), None);
 ```
 
 ## License
