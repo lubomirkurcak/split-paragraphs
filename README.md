@@ -1,5 +1,9 @@
 # split-paragraphs
 
+[![Build status](https://github.com/lubomirkurcak/split-paragraphs/workflows/tests/badge.svg)](https://github.com/lubomirkurcak/split-paragraphs/actions)
+[![Build status](https://github.com/lubomirkurcak/split-paragraphs/workflows/no_std_build/badge.svg)](https://github.com/lubomirkurcak/split-paragraphs/actions)
+[![Crates.io](https://img.shields.io/crates/v/split-paragraphs.svg)](https://crates.io/crates/split-paragraphs)
+
 Provides an iterator over the paragraphs of a string.
 
 ## Usage
