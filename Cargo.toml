@@ -1,8 +1,8 @@
 [package]
 authors = ["Ľubomír Kurčák <lubomirkurcak@gmail.com>"]
 name = "split-paragraphs"
-description = "An iterator over the paragraphs of a string."
-version = "0.1.0"
+description = "Iterator over paragraphs of a string."
+version = "0.2.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/lubomirkurcak/split-paragraphs"
@@ -13,3 +13,4 @@ categories = [
     "no-std",
     "no-std::no-alloc",
 ]
+keywords = ["paragraphs", "split", "iterator", "no-std", "no-alloc"]

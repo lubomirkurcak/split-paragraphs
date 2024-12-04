@@ -4,11 +4,11 @@
 [![Build status](https://github.com/lubomirkurcak/split-paragraphs/workflows/no_std_build/badge.svg)](https://github.com/lubomirkurcak/split-paragraphs/actions)
 [![Crates.io](https://img.shields.io/crates/v/split-paragraphs.svg)](https://crates.io/crates/split-paragraphs)
 
-Provides an iterator over the paragraphs of a string.
+Provides an iterator over paragraphs of a string.
 
 ## Usage
 ```rust
-use split_paragraphs::ParagraphsExt;
+use split_paragraphs::SplitParagraphs;
 
 let text = "foo\r\nbar\n\nbaz\r";
 let mut paragraphs = text.paragraphs();

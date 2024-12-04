@@ -1,8 +1,8 @@
-use split_paragraphs::ParagraphsExt;
+use split_paragraphs::SplitParagraphs;
 
 #[test]
 fn readme() {
-    use split_paragraphs::ParagraphsExt;
+    use split_paragraphs::SplitParagraphs;
 
     let text = "foo\r\nbar\n\nbaz\r";
     let mut paragraphs = text.paragraphs();
@@ -13,7 +13,7 @@ fn readme() {
 }
 
 #[test]
-fn line() {
+fn line1() {
     let text = "Hello world";
     let mut paragraphs = text.paragraphs();
     assert_eq!(paragraphs.next(), Some("Hello world"));
@@ -154,4 +154,42 @@ fn test_double_ended_iterator() {
             }
         }
     }
+}
+
+#[test]
+fn test_consistency_with_lines() {
+    for text in [
+        "\n\rfoo\r\nbar\n\nbaz\r",
+        "foo\r\nbar\n\nbaz\r",
+        "foo\nbar\n\r\nbaz",
+        TEXT,
+    ] {
+        let lines1: Vec<&str> = text.paragraphs().flat_map(|p| p.lines()).collect();
+        let lines2: Vec<&str> = text.lines().filter(|l| !l.trim().is_empty()).collect();
+
+        for (l1, l2) in lines1.iter().zip(lines2.iter()) {
+            assert_eq!(l1, l2);
+        }
+    }
+}
+
+#[test]
+fn empty_string() {
+    let text = "";
+    let mut paragraphs = text.paragraphs();
+    assert_eq!(paragraphs.next(), None);
+}
+
+#[test]
+fn empty_lines() {
+    let text = "\n\n\n";
+    let mut paragraphs = text.paragraphs();
+    assert_eq!(paragraphs.next(), None);
+}
+
+#[test]
+fn whitespace_lines() {
+    let text = "\n \n\t\n\r\n\r\r\n\t\r\n\r\t\n\r";
+    let mut paragraphs = text.paragraphs();
+    assert_eq!(paragraphs.next(), None);
 }
